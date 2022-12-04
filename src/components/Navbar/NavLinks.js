@@ -27,5 +27,3 @@ export const NavLinks = [
       color: "text-white",
     },
   ];
-
-  export default NavLinks;
