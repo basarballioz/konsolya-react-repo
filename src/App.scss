@@ -37,13 +37,20 @@
   }
 }
 
+// NAVBAR STYLES
 .navbar-site-area {
   display: flex;
   align-items: center;
   .navbar-title {
-    margin-left: .4rem;
+    margin-left: 0.4rem;
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     color: #fff;
+  }
+}
+
+.navbar-links {
+  .navbar-item {
+    transition: all .1s ease-in;
   }
 }

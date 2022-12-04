@@ -1,41 +1,10 @@
 import React, { useState } from "react";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import { Transition } from "@headlessui/react";
+import NavLinks from "./NavLinks";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const navItems = [
-    {
-      id: "1",
-      name: "Anasayfa",
-      slug: "/",
-      color: "text-white",
-    },
-
-    {
-      id: "2",
-      name: "Kirala",
-      slug: "/kirala",
-      color: "text-white",
-    },
-
-    {
-      id: "3",
-      name: "Hakkımızda",
-      slug: "/hakkimizda",
-      color: "text-white",
-    },
-
-    {
-      id: "4",
-      name: "İletişim",
-      slug: "/iletisim",
-      color: "text-white",
-    },
-  ];
-
-  console.log(navItems);
 
   return (
     <nav className="bg-gray-800">
@@ -52,14 +21,14 @@ function Nav() {
               />
               <span className="navbar-title">Konsolya.com</span>
             </div>
-            <div className="hidden md:block">
+            <div className="navbar-links hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                {navItems.map((item) => {
+                {NavLinks.map((item) => {
                   return (
                     <a
                       key={item.id}
                       href={item.slug}
-                      className={`${item.color} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`navbar-item ${item.color} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       {item.name}
                     </a>
@@ -127,7 +96,7 @@ function Nav() {
         {(ref) => (
           <div className="md:hidden" id="mobile-menu">
             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navItems.map((item) => {
+              {NavLinks.map((item) => {
                 return (
                   <a
                     key={item.id}
