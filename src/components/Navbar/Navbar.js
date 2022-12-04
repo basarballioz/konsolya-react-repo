@@ -50,13 +50,26 @@ function Nav() {
           </div>
 
           <div className="navbar-account-area">
-            <span
-              className={`${
-                isTabletOrMobile ? "hidden navbar-title" : "navbar-title"
-              }`}
+            <Button
+              className="login-button"
+              sx={{ width: "42%", fontWeight: "bold", m:1 }}
+              variant="contained"
             >
-              Konsolya.com
-            </span>
+              Giriş Yap
+            </Button>
+            <Button
+              className="register-button"
+              sx={{
+                width: "42%",
+                ml: "8%",
+                color: "white",
+                bgcolor: "green",
+                fontWeight: "bold",
+              }}
+              variant="outlined"
+            >
+              Kayıt Ol
+            </Button>
           </div>
         </div>
         <div className="flex md:hidden my-2">

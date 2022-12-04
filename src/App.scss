@@ -23,8 +23,14 @@
 
 .navbar-links {
   .navbar-item {
+    text-transform: uppercase;
     transition: all 0.1s ease-in;
   }
+}
+
+.navbar-link {
+  border: 2px solid red;
+  text-transform: uppercase;
 }
 
 .mobile-navbar {
@@ -36,4 +42,9 @@
   bottom: 10px;
   right: 0;
   left: 0;
+}
+
+.login-button,
+.register-button {
+  white-space: nowrap;
 }
