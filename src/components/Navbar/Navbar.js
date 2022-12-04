@@ -4,7 +4,9 @@ import { Transition } from "@headlessui/react";
 import { NavLinks } from "./NavLinks";
 import { useMediaQuery } from "react-responsive";
 import Button from "@mui/material/Button";
-import Box, { BoxProps } from "@mui/material/Box";
+import Box from "@mui/material/Box";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 function Nav() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
@@ -61,44 +63,12 @@ function Nav() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
-            className="bg-gray-900 inline-flex items-center justify-center p-3 rounded-md text-gray-400 hover:text-white hover:bg-gray-800"
+            className="bg-gray-900 inline-flex items-center justify-center p-3 rounded-md text-white"
             aria-controls="mobile-menu"
             aria-expanded="false"
           >
             <span className="sr-only">Mobile Navigation Menu</span>
-            {!isOpen ? (
-              <svg
-                className="block h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="block h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            )}
+            {!isOpen ? <MenuIcon /> : <CloseIcon />}
           </button>
         </div>
       </div>
@@ -108,7 +78,7 @@ function Nav() {
         enter="transition ease-out duration-100 transform"
         enterFrom="opacity-0 scale-95"
         enterTo="menu-height opacity-100 scale-100"
-        leave="transition ease-in duration-10 transform"
+        leave="hidden transition ease-in duration-10 transform"
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
@@ -142,13 +112,28 @@ function Nav() {
                 m: 1,
               }}
             >
-              <Button sx={{ width: '48%' }} variant="contained">
+              <Button
+                sx={{ width: "48%", fontWeight: "bold" }}
+                variant="contained"
+              >
                 Giriş Yap
               </Button>
-              <Button sx={{ width: '48%', ml: '4%'}} variant="outlined">
+              <Button
+                sx={{
+                  width: "48%",
+                  ml: "4%",
+                  color: "white",
+                  bgcolor: "green",
+                  fontWeight: "bold",
+                }}
+                variant="outlined"
+              >
                 Kayıt Ol
               </Button>
-              <Button sx={{ width: 1, mt:3 }} variant="contained">
+              <Button
+                sx={{ width: 1, mt: 3, fontWeight: "bold", bgcolor: "#71b5ff" }}
+                variant="contained"
+              >
                 Mağaza Girişi
               </Button>
             </Box>
