@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -5,6 +12,10 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.menu-height {
+  height: calc(100vh - 7vh);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -51,6 +62,10 @@
 
 .navbar-links {
   .navbar-item {
-    transition: all .1s ease-in;
+    transition: all 0.1s ease-in;
   }
+}
+
+.mobile-navbar {
+  border-bottom: 2px solid #fff;
 }

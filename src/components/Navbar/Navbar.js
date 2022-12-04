@@ -2,13 +2,23 @@ import React, { useState } from "react";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import { Transition } from "@headlessui/react";
 import { NavLinks } from "./NavLinks";
+import { useMediaQuery } from "react-responsive";
+import Button from "@mui/material/Button";
+import Box, { BoxProps } from "@mui/material/Box";
 
 function Nav() {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
   const [isOpen, setIsOpen] = useState(false);
 
+  console.log(isTabletOrMobile);
   return (
     <nav className="bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        className={`${
+          isTabletOrMobile ? "mobile-navbar flex justify-between" : ""
+        } max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`}
+      >
         <div className="flex items-center justify-between h-16">
           <div className="navbar-site-area flex-shrink-0">
             <SportsEsportsIcon
@@ -38,14 +48,20 @@ function Nav() {
           </div>
 
           <div className="navbar-account-area">
-            <span className="navbar-title">Konsolya.com</span>
+            <span
+              className={`${
+                isTabletOrMobile ? "hidden navbar-title" : "navbar-title"
+              }`}
+            >
+              Konsolya.com
+            </span>
           </div>
         </div>
-        <div className="-mr-2 flex md:hidden">
+        <div className="flex md:hidden my-2">
           <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
-            className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+            className="bg-gray-900 inline-flex items-center justify-center p-3 rounded-md text-gray-400 hover:text-white hover:bg-gray-800"
             aria-controls="mobile-menu"
             aria-expanded="false"
           >
@@ -91,28 +107,52 @@ function Nav() {
         show={isOpen}
         enter="transition ease-out duration-100 transform"
         enterFrom="opacity-0 scale-95"
-        enterTo="opacity-100 scale-100"
-        leave="transition ease-in duration-75 transform"
+        enterTo="menu-height opacity-100 scale-100"
+        leave="transition ease-in duration-10 transform"
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
         {(ref) => (
           <div className="md:hidden" id="mobile-menu">
-            <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <div ref={ref} className="px-2 pt-2 pb-3 sm:px-3">
               {NavLinks.map((item) => {
                 return (
-                  <a
-                    key={item.id}
-                    href={item.slug}
-                    className={`${item.color} ${
-                      isOpen && "block"
-                    } hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium`}
-                  >
-                    {item.name}
-                  </a>
+                  <>
+                    <a
+                      key={item.id}
+                      href={item.slug}
+                      className={`${item.color} ${
+                        isOpen && "block"
+                      } hover:bg-gray-700 px-3 py-2 rounded-lg text-ml font-medium bg-white text-black my-4 mx-2`}
+                    >
+                      {item.name}
+                    </a>
+                  </>
                 );
               })}
             </div>
+
+            <Box
+              className="navbar-profile-area"
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                flexWrap: "wrap",
+                p: 1,
+                m: 1,
+                borderRadius: 1,
+              }}
+            >
+              <Button sx={{ width: 50 }} variant="contained">
+                Giriş Yap
+              </Button>
+              <Button sx={{ width: 50 }} variant="outlined">
+                Kayıt Ol
+              </Button>
+              <Button sx={{ width: 100 }} variant="contained">
+                Mağaza Girişi
+              </Button>
+            </Box>
           </div>
         )}
       </Transition>
