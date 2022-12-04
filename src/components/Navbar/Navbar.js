@@ -140,16 +140,15 @@ function Nav() {
                 flexWrap: "wrap",
                 p: 1,
                 m: 1,
-                borderRadius: 1,
               }}
             >
-              <Button sx={{ width: 50 }} variant="contained">
+              <Button sx={{ width: '48%' }} variant="contained">
                 Giriş Yap
               </Button>
-              <Button sx={{ width: 50 }} variant="outlined">
+              <Button sx={{ width: '48%', ml: '4%'}} variant="outlined">
                 Kayıt Ol
               </Button>
-              <Button sx={{ width: 100 }} variant="contained">
+              <Button sx={{ width: 1, mt:3 }} variant="contained">
                 Mağaza Girişi
               </Button>
             </Box>
