@@ -9,24 +9,28 @@ function Nav() {
     {
       id: "1",
       name: "Anasayfa",
+      slug: "/",
       color: "text-white",
     },
 
     {
       id: "2",
       name: "Kirala",
+      slug: "/kirala",
       color: "text-white",
     },
 
     {
       id: "3",
       name: "Hakkımızda",
+      slug: "/hakkimizda",
       color: "text-white",
     },
 
     {
       id: "4",
       name: "İletişim",
+      slug: "/iletisim",
       color: "text-white",
     },
   ];
@@ -50,11 +54,11 @@ function Nav() {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                {navItems.map((item, index) => {
+                {navItems.map((item) => {
                   return (
                     <a
-                      key={index}
-                      href="# "
+                      key={item.id}
+                      href={item.slug}
                       className={`${item.color} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       {item.name}
@@ -123,33 +127,19 @@ function Nav() {
         {(ref) => (
           <div className="md:hidden" id="mobile-menu">
             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <a
-                href="# "
-                className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-              >
-                Anasayfa
-              </a>
-
-              <a
-                href="# "
-                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              >
-                Hakkımızda
-              </a>
-
-              <a
-                href="# "
-                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              >
-                İletişim
-              </a>
-
-              <a
-                href="# "
-                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              >
-                Kirala
-              </a>
+              {navItems.map((item) => {
+                return (
+                  <a
+                    key={item.id}
+                    href={item.slug}
+                    className={`${item.color} ${
+                      isOpen && "block"
+                    } hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium`}
+                  >
+                    {item.name}
+                  </a>
+                );
+              })}
             </div>
           </div>
         )}
