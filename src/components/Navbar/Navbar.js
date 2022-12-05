@@ -49,28 +49,30 @@ function Nav() {
             </div>
           </div>
 
-          <div className="navbar-account-area">
-            <Button
-              className="login-button"
-              sx={{ width: "42%", fontWeight: "bold", m:1 }}
-              variant="contained"
-            >
-              Giriş Yap
-            </Button>
-            <Button
-              className="register-button"
-              sx={{
-                width: "42%",
-                ml: "8%",
-                color: "white",
-                bgcolor: "green",
-                fontWeight: "bold",
-              }}
-              variant="outlined"
-            >
-              Kayıt Ol
-            </Button>
-          </div>
+          {!isTabletOrMobile && (
+            <div className="navbar-account-area">
+              <Button
+                className="login-button"
+                sx={{ width: "42%", fontWeight: "bold", m: 1 }}
+                variant="contained"
+              >
+                Giriş Yap
+              </Button>
+              <Button
+                className="register-button"
+                sx={{
+                  width: "42%",
+                  ml: "8%",
+                  color: "white",
+                  bgcolor: "green",
+                  fontWeight: "bold",
+                }}
+                variant="outlined"
+              >
+                Kayıt Ol
+              </Button>
+            </div>
+          )}
         </div>
         <div className="flex md:hidden my-2">
           <button
