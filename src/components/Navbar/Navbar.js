@@ -13,7 +13,6 @@ function Nav() {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log(isTabletOrMobile);
   return (
     <nav className="bg-gray-800">
       <div
