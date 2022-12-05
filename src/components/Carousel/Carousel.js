@@ -2,13 +2,13 @@ import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { Button } from "@mui/material";
 
-function Slide(props) {
+function Slide(data) {
   return (
-    <div>
+    <div className="carousel-container">
       <img
-        style={{ width: "100%", height: "100%" }}
-        src={props.item.image}
-        alt={props.item.name}
+        style={{ width: "100%", height: "550px" }}
+        src={data.item.image}
+        alt={data.item.name}
       />
     </div>
   );
@@ -19,19 +19,18 @@ export function MainCarousel() {
     {
       name: "item-2",
       description: "Hello World!",
-      image:
-        "https://jssors8.azureedge.net/demos/image-slider/img/px-beach-daylight-fun-1430675-image.jpg",
+      image: "https://www.tbcrecruiting.com/Images/slider-img.jpg",
     },
     {
       name: "item-1",
       description: "Hello World!",
-      image:
-        "https://jssors8.azureedge.net/demos/image-slider/img/px-beach-daylight-fun-1430675-image.jpg",
+      image: "https://www.tbcrecruiting.com/Images/slider-img.jpg",
     },
   ];
 
   return (
     <Carousel
+      fullHeightHover={false}
       sx={{
         buttonWrapper: {
           position: "absolute",
@@ -42,13 +41,9 @@ export function MainCarousel() {
             "& $button": {
               backgroundColor: "black",
               filter: "brightness(120%)",
-              opacity: "0.4",
+              opacity: "0.9",
             },
           },
-        },
-        fullHeightHoverWrapper: {
-          height: "100%",
-          top: "0",
         },
         buttonVisible: {
           opacity: "1",
@@ -59,22 +54,32 @@ export function MainCarousel() {
         button: {
           margin: "0 10px",
           position: "relative",
-          backgroundColor: "#007fdb",
+          backgroundColor: "black",
           top: "calc(50% - 20px) !important",
           color: "white",
-          fontSize: "34px",
           transition: "200ms",
           cursor: "pointer",
-          opacity: 1,
+          opacity: 0.4,
           "&:hover": {
             opacity: "0.6 !important",
           },
         },
         next: {
-          right: 0,
+          right: "10px",
         },
         prev: {
-          left: 0,
+          left: "10px",
+        },
+      }}
+      navButtonsProps={{
+        className: "nav-button-container",
+      }}
+      indicatorContainerProps={{
+        className: "indicator-container",
+        style: {
+          position: "absolute",
+          bottom: "10px",
+          zIndex: "100",
         },
       }}
     >

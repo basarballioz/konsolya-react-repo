@@ -14,7 +14,7 @@ function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-800">
+    <nav className="main-navbar bg-gray-800">
       <div
         className={`${
           isTabletOrMobile ? "mobile-navbar flex justify-between" : ""

@@ -10,6 +10,10 @@
 }
 
 // NAVBAR STYLES
+.main-navbar {
+  border-bottom: 3px solid #1976d2;
+}
+
 .navbar-site-area {
   display: flex;
   align-items: center;
@@ -33,10 +37,6 @@
   text-transform: uppercase;
 }
 
-.mobile-navbar {
-  border-bottom: 2px solid #71b5ff;
-}
-
 .navbar-profile-area {
   position: absolute;
   bottom: 10px;
@@ -47,4 +47,24 @@
 .login-button,
 .register-button {
   white-space: nowrap;
+}
+
+// CAROUSEL STYLES
+.nav-button-container {
+  margin: 0 14px !important;
+  background-color: #1976d2 !important;
+  opacity: 0.8 !important;
+
+  svg {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+}
+
+.indicator-container {
+  button {
+    color: #fff !important;
+    opacity: 1 !important;
+    background-color: transparent !important;
+  }
 }
