@@ -22,7 +22,7 @@ function Nav() {
   };
 
   return (
-    <nav className="main-navbar bg-gray-800">
+    <nav className="main-navbar">
       <div
         className={`${
           isTabletOrMobile ? "mobile-navbar flex justify-between" : ""

@@ -1,12 +1,10 @@
-import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { Button } from "@mui/material";
 
 function Slide(data) {
   return (
     <div className="carousel-container">
       <img
-        style={{ width: "100%", height: "550px" }}
+        style={{ width: "100%"}}
         src={data.item.image}
         alt={data.item.name}
       />

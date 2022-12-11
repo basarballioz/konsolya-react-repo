@@ -7,11 +7,13 @@
 
 .menu-height {
   height: calc(100vh - 7vh);
+  border-top: 3px solid #1976d2;
 }
 
 // NAVBAR STYLES
 .main-navbar {
   border-bottom: 3px solid #1976d2;
+  background-color: #000;
 }
 
 .navbar-site-area {
@@ -50,9 +52,13 @@
 }
 
 // CAROUSEL STYLES
+.carousel-container {
+  max-height: 550px;
+}
+
 .nav-button-container {
-  margin: 0 14px !important;
-  background-color: #1976d2 !important;
+  margin: 0 !important;
+  background-color: transparent !important;
   opacity: 0.8 !important;
 
   svg {
@@ -66,5 +72,15 @@
     color: #fff !important;
     opacity: 1 !important;
     background-color: transparent !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .carousel-container {
+    height: 350px;
+    img {
+      height: 350px;
+    }
+    max-height: 550px;
   }
 }
