@@ -13,6 +13,14 @@ function Nav() {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const navbarMenu = () => {
+    if (isOpen) {
+      document.body.style.overflowY = "scroll";
+    } else {
+      document.body.style.overflowY = "hidden";
+    }
+  };
+
   return (
     <nav className="main-navbar bg-gray-800">
       <div
@@ -75,7 +83,10 @@ function Nav() {
         </div>
         <div className="flex md:hidden my-2">
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              setIsOpen(!isOpen);
+              navbarMenu();
+            }}
             type="button"
             className="bg-gray-900 inline-flex items-center justify-center p-3 rounded-md text-white"
             aria-controls="mobile-menu"
